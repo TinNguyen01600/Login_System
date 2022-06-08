@@ -10,3 +10,12 @@
 #include <cstdlib>
 #include <fstream>
 using namespace std;
+const int LEN = 50;
+
+class User{
+    char full_name[LEN];
+    char email[LEN];
+    char passwd[LEN];
+    char username[LEN];
+    char phone_no[LEN];
+};

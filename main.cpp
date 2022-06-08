@@ -1,5 +1,5 @@
 #include "mylib.hh"
 
 int main(void){
-    cout << "hello";
+    User *user = new User [LEN];
 }
