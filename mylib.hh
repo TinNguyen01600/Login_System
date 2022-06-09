@@ -18,4 +18,15 @@ class User{
     char passwd[LEN];
     char username[LEN];
     char phone_no[LEN];
+public:
+    void set_data(char *full_name, char *email, char *passwd, char *username, char *phone_no);
+    void print_data();
+};
+
+void User::set_data(char *full_name, char *email, char *passwd, char *username, char *phone_no){
+    strcpy(this->full_name, full_name);
+    strcpy(this->email, email);
+    strcpy(this->passwd, passwd);
+    strcpy(this->username, username);
+    strcpy(this->phone_no, phone_no);
 };
