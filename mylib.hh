@@ -39,3 +39,6 @@ void User::generate_username(){
         else this->username[i] = this->email[i];
     }
 }
+
+
+void print_home_screen();
