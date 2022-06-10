@@ -21,6 +21,7 @@ class User{
 public:
     void set_data(char *full_name, char *email, char *passwd, char *username, char *phone_no);
     void print_data();
+    void generate_username();
 };
 
 void User::set_data(char *full_name, char *email, char *passwd, char *username, char *phone_no){
@@ -30,3 +31,11 @@ void User::set_data(char *full_name, char *email, char *passwd, char *username, 
     strcpy(this->username, username);
     strcpy(this->phone_no, phone_no);
 };
+
+void User::generate_username(){
+    // abc123@gmail.com
+    for(int i = 0; i<strlen(this->email); i++){
+        if (this->email[i] == '@')  break;
+        else this->username[i] = this->email[i];
+    }
+}
