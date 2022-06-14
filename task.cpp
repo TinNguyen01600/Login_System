@@ -7,3 +7,7 @@ void print_home_screen(){
     cout << "2. Login" << endl;
     cout << "3. Exit" << endl;
 }
+
+void loop(User *user, int count){
+    cout << "hello";
+}
