@@ -8,9 +8,12 @@ void print_home_screen(){
     cout << "3. Exit" << endl;
 }
 
-void get_string(char string[], int len){
-    cin.getline(string, len);
-    cin.getline(string, len);
+void generate_username(char *email, char *username){
+    // abc123@gmail.com
+    for(int i = 0; i<strlen(email); i++){
+        if (email[i] == '@')  break;
+        else username[i] = email[i];
+    }
 }
 
 void loop(User *user, int count){
@@ -29,8 +32,13 @@ void loop(User *user, int count){
             char full_name[LEN], email[LEN], passwd[LEN];
             char username[LEN], phone_no[LEN];
 
-            cout << "Enter the customer's name: ";
-            get_string(full_name, LEN);
+            cout << "Enter your full name: ";
+            cin.getline(full_name, LEN);
+            cin.getline(full_name, LEN);
+            cout << "Enter your email: ";
+            cin.getline(email, LEN);
+            cout << "Enter your telephone number: ";
+            cin.getline(phone_no, LEN);
             break;
         }
         case 2:{
