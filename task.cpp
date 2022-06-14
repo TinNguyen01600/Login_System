@@ -8,6 +8,11 @@ void print_home_screen(){
     cout << "3. Exit" << endl;
 }
 
+void get_string(char string[], int len){
+    cin.getline(string, len);
+    cin.getline(string, len);
+}
+
 void loop(User *user, int count){
     print_home_screen();
     cout << "Select an operation: ";
@@ -20,7 +25,12 @@ void loop(User *user, int count){
     switch (choice)
     {
         case 1:{
+            system("cls");
+            char full_name[LEN], email[LEN], passwd[LEN];
+            char username[LEN], phone_no[LEN];
 
+            cout << "Enter the customer's name: ";
+            get_string(full_name, LEN);
             break;
         }
         case 2:{
