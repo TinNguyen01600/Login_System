@@ -16,6 +16,18 @@ void generate_username(char *email, char *username){
     }
 }
 
+void get_password(char* passwd){
+    char ch;
+    int i;
+    while(1){
+        ch = getch();
+        if(ch == ENTER || ch == TAB){
+            passwd[i] = '\0';
+            break;
+        }
+    }
+}
+
 void loop(User *user, int count){
     print_home_screen();
     cout << "Select an operation: ";
@@ -32,13 +44,16 @@ void loop(User *user, int count){
             char full_name[LEN], email[LEN], passwd[LEN];
             char username[LEN], phone_no[LEN];
 
-            cout << "Enter your full name: ";
+            cout << "Enter your full name:\t ";
             cin.getline(full_name, LEN);
             cin.getline(full_name, LEN);
-            cout << "Enter your email: ";
+            cout << "Enter your email:\t ";
             cin.getline(email, LEN);
-            cout << "Enter your telephone number: ";
+            generate_username(email, username);
+            cout << "Enter your telephone number:\t ";
             cin.getline(phone_no, LEN);
+            cout << "Enter your password:\t ";
+            cin.getline(passwd, LEN);
             break;
         }
         case 2:{

@@ -12,6 +12,10 @@
 using namespace std;
 const int LEN = 50;
 
+#define ENTER 13
+#define TAB 9
+#define BCKSPC 8
+
 class User{
     char full_name[LEN];
     char email[LEN];
@@ -33,3 +37,4 @@ public:
 void print_home_screen();
 void loop(User *user, int count);
 void generate_username(char *email, char *username);
+void get_password(char *passwd);
