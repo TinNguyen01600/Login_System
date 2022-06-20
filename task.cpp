@@ -66,9 +66,17 @@ void loop(User *user, int count){
             generate_username(email, username);
             cout << "Enter your telephone number:\t ";
             cin.getline(phone_no, LEN);
+
             cout << "Enter your password:\t ";
             get_password(passwd);
-            cout << passwd;
+            char passwd2[LEN] = "";
+            cout << "\nConfirm your password:\t";
+            get_password(passwd2);
+            while(strcmp(passwd, passwd2) != 0){
+                cout << "Password is not matched!";
+                cout << "\nConfirm your password:\t";
+                get_password(passwd2);
+            }
             break;
         }
         case 2:{
