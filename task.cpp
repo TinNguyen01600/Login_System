@@ -18,12 +18,26 @@ void generate_username(char *email, char *username){
 
 void get_password(char* passwd){
     char ch;
-    int i;
+    int i = 0;
     while(1){
         ch = getch();
         if(ch == ENTER || ch == TAB){
             passwd[i] = '\0';
             break;
+        }
+        else if(ch == BCKSPC){
+            if(i > 0){
+                i--;
+                cout << "\b \b"; 
+                // for ex: abc|
+                // \b moves the cursor to the left ab|c
+                // space char replaces 'c' (ab |)
+                // \b moves the cursor ab|
+            }
+        }
+        else {
+            passwd[i++] = ch;
+            cout << "*";
         }
     }
 }
@@ -53,7 +67,8 @@ void loop(User *user, int count){
             cout << "Enter your telephone number:\t ";
             cin.getline(phone_no, LEN);
             cout << "Enter your password:\t ";
-            cin.getline(passwd, LEN);
+            get_password(passwd);
+            cout << passwd;
             break;
         }
         case 2:{

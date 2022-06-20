@@ -37,4 +37,4 @@ public:
 void print_home_screen();
 void loop(User *user, int count);
 void generate_username(char *email, char *username);
-void get_password(char *passwd);
+void get_password(char *passwd);    // this function is used to encode passwd to *
