@@ -6,7 +6,6 @@ void print_home_screen(){
     cout << "1. Signup" << endl;
     cout << "2. Login" << endl;
     cout << "3. Exit" << endl;
-
 }
 
 void generate_username(char *email, char *username){
@@ -43,6 +42,18 @@ void get_password(char* passwd){
     }
 }
 
+void check(char *string){
+    auto x = std::string(string);
+    bool found = x.find("@") != std::string::npos;
+    while(found == false){
+        cout << "\t ✖ Invalid Email ✖";
+        cout << "\nEnter your email:\t\t";
+        cin.getline(string, LEN);
+        x = std::string(string);
+        found = x.find("@") != std::string::npos;
+    }
+}
+
 void loop(User *user, int count){
     print_home_screen();
     cout << "Select an operation: ";
@@ -62,23 +73,26 @@ void loop(User *user, int count){
             cout << "Enter your full name:\t\t";
             cin.getline(full_name, LEN);
             cin.getline(full_name, LEN);
+
             cout << "Enter your email:\t\t";
             cin.getline(email, LEN);
+            check(email);
+
             generate_username(email, username);
+
             cout << "Enter your telephone number:\t";
             cin.getline(phone_no, LEN);
 
             cout << "Enter your password:\t\t";
             get_password(passwd);
             char passwd2[LEN] = "";
-            cout << "\nConfirm your password:\t\t";
-            get_password(passwd2);
             while(strcmp(passwd, passwd2) != 0){
-                cout << "\t = Incorrect! =";
                 cout << "\nConfirm your password:\t\t";
                 get_password(passwd2);
+                if (strcmp(passwd, passwd2) != 0)   cout << "\t✖";
+                else break;
             }
-            cout << "\n\nYou are now registered. Your user name is ";
+            cout << "\t✔\n\nYou are now registered. Your user name is ";
             cout << username;
             break;
         }

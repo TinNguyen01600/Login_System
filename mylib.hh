@@ -7,11 +7,9 @@
 #include <ctime>
 #include <stdio.h>
 #include <Windows.h>
+#include <windows.h>
 #include <cstdlib>
 #include <fstream>
-#include <fcntl.h>  
-#include <io.h>
-#include <locale>
 using namespace std;
 const int LEN = 50;
 
@@ -41,3 +39,4 @@ void print_home_screen();
 void loop(User *user, int count);
 void generate_username(char *email, char *username);
 void get_password(char *passwd);    // this function is used to encode passwd to *
+void check(char *string);           // check if email is valid
