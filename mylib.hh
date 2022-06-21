@@ -9,6 +9,9 @@
 #include <Windows.h>
 #include <cstdlib>
 #include <fstream>
+#include <fcntl.h>  
+#include <io.h>
+#include <locale>
 using namespace std;
 const int LEN = 50;
 

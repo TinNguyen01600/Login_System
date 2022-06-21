@@ -6,12 +6,13 @@ void print_home_screen(){
     cout << "1. Signup" << endl;
     cout << "2. Login" << endl;
     cout << "3. Exit" << endl;
+
 }
 
 void generate_username(char *email, char *username){
     // abc123@gmail.com
     for(int i = 0; i<strlen(email); i++){
-        if (email[i] == '@')  break;
+        if (email[i] == '@')  {username[i] = '\0'; break;}
         else username[i] = email[i];
     }
 }
@@ -64,7 +65,7 @@ void loop(User *user, int count){
             cout << "Enter your email:\t\t";
             cin.getline(email, LEN);
             generate_username(email, username);
-            cout << "Enter your telephone number:\t ";
+            cout << "Enter your telephone number:\t";
             cin.getline(phone_no, LEN);
 
             cout << "Enter your password:\t\t";
@@ -73,12 +74,11 @@ void loop(User *user, int count){
             cout << "\nConfirm your password:\t\t";
             get_password(passwd2);
             while(strcmp(passwd, passwd2) != 0){
-                cout << "\t --- not matched!";
-                cout << "\nConfirm your password:\t";
+                cout << "\t = Incorrect! =";
+                cout << "\nConfirm your password:\t\t";
                 get_password(passwd2);
             }
-            cout << "\t --- matched!\n";
-            cout << "\nYou are registered. Your user name is ";
+            cout << "\n\nYou are now registered. Your user name is ";
             cout << username;
             break;
         }
