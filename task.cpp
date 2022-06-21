@@ -58,25 +58,28 @@ void loop(User *user, int count){
             char full_name[LEN], email[LEN], passwd[LEN];
             char username[LEN], phone_no[LEN];
 
-            cout << "Enter your full name:\t ";
+            cout << "Enter your full name:\t\t";
             cin.getline(full_name, LEN);
             cin.getline(full_name, LEN);
-            cout << "Enter your email:\t ";
+            cout << "Enter your email:\t\t";
             cin.getline(email, LEN);
             generate_username(email, username);
             cout << "Enter your telephone number:\t ";
             cin.getline(phone_no, LEN);
 
-            cout << "Enter your password:\t ";
+            cout << "Enter your password:\t\t";
             get_password(passwd);
             char passwd2[LEN] = "";
-            cout << "\nConfirm your password:\t";
+            cout << "\nConfirm your password:\t\t";
             get_password(passwd2);
             while(strcmp(passwd, passwd2) != 0){
-                cout << "Password is not matched!";
+                cout << "\t --- not matched!";
                 cout << "\nConfirm your password:\t";
                 get_password(passwd2);
             }
+            cout << "\t --- matched!\n";
+            cout << "\nYou are registered. Your user name is ";
+            cout << username;
             break;
         }
         case 2:{
