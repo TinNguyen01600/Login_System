@@ -56,21 +56,17 @@ void check(char *string, int n){
             found2 = x.find(".") != std::string::npos;
         }
     }
-    
-}
-
-void check_phone(char *string){
-    int valid = 1;
-    for (int i = 0; i<strlen(string); i++){
-        if((int(string[i]) < 48) || (int(string[i]) > 57)){
-            valid = 0; break;
+    else if (n == 2){
+        int valid = 1;
+        for (int i = 0; i<strlen(string); i++){
+            if((int(string[i]) < 48) || (int(string[i]) > 57))  {valid = 0; break;}
         }
-    }
-    if(valid == 0){
-        cout << "\t ✖ Invalid Phone Number ✖";
-        cout << "\nRe-enter your telephone number:\t";
-        cin.getline(string, LEN);
-        check_phone(string);
+        if(valid == 0){
+            cout << "\t ✖ Invalid Phone Number ✖";
+            cout << "\nRe-enter your telephone number:\t";
+            cin.getline(string, LEN);
+            check(string, 2);
+        }
     }
 }
 
@@ -102,7 +98,7 @@ void loop(User *user, int count){
 
             cout << "Enter your telephone number:\t";
             cin.getline(phone_no, LEN);
-            check_phone(phone_no);
+            check(phone_no, 2);
             
 
             cout << "Enter your password:\t\t";

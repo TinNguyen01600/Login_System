@@ -1,3 +1,5 @@
+#ifndef mylib_DEFINED
+#define mylib_DEFINED
 #include <iostream>
 #include <cstring>
 #include <string>
@@ -39,4 +41,6 @@ void print_home_screen();
 void loop(User *user, int count);
 void generate_username(char *email, char *username);
 void get_password(char *passwd);    // this function is used to encode passwd to *
-void check(char *string);           // check if email is valid
+void check(char *string, int n);           // check if email is valid
+
+#endif  // mylib_DEFINED
