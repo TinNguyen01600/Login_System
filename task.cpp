@@ -42,15 +42,35 @@ void get_password(char* passwd){
     }
 }
 
-void check(char *string){
-    auto x = std::string(string);
-    bool found = x.find("@") != std::string::npos;
-    while(found == false){
-        cout << "\t ✖ Invalid Email ✖";
-        cout << "\nEnter your email:\t\t";
+void check(char *string, int n){
+    if (n == 1){
+        auto x = std::string(string);
+        bool found1 = x.find("@") != std::string::npos;
+        bool found2 = x.find(".") != std::string::npos;
+        while(found1 == false || found2 == false){
+            cout << "\t ✖ Invalid Email ✖";
+            cout << "\nRe-enter your email:\t\t";
+            cin.getline(string, LEN);
+            x = std::string(string);
+            found1 = x.find("@") != std::string::npos;
+            found2 = x.find(".") != std::string::npos;
+        }
+    }
+    
+}
+
+void check_phone(char *string){
+    int valid = 1;
+    for (int i = 0; i<strlen(string); i++){
+        if((int(string[i]) < 48) || (int(string[i]) > 57)){
+            valid = 0; break;
+        }
+    }
+    if(valid == 0){
+        cout << "\t ✖ Invalid Phone Number ✖";
+        cout << "\nRe-enter your telephone number:\t";
         cin.getline(string, LEN);
-        x = std::string(string);
-        found = x.find("@") != std::string::npos;
+        check_phone(string);
     }
 }
 
@@ -76,12 +96,14 @@ void loop(User *user, int count){
 
             cout << "Enter your email:\t\t";
             cin.getline(email, LEN);
-            check(email);
+            check(email, 1);
 
             generate_username(email, username);
 
             cout << "Enter your telephone number:\t";
             cin.getline(phone_no, LEN);
+            check_phone(phone_no);
+            
 
             cout << "Enter your password:\t\t";
             get_password(passwd);
