@@ -110,8 +110,10 @@ void loop(User *user, int count){
                 if (strcmp(passwd, passwd2) != 0)   cout << "\t✖";
                 else break;
             }
+            user[count].set_data(full_name, email, passwd, username, phone_no);
             cout << "\t✔\n\nYou are now registered. Your user name is ";
             cout << username;
+
             break;
         }
         case 2:{

@@ -34,6 +34,12 @@ public:
         strcpy(this->phone_no, phone_no);
     }
     void print_data();
+    void write_file(){
+        ofstream file;
+        file.open ("a.dat", ios_base::app);
+        file.write((char*)this, sizeof(User));
+        file.close();
+    }
 };
 
 
