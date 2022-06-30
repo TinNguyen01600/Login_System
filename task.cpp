@@ -48,7 +48,7 @@ void check(char *string, int n){
         bool found1 = x.find("@") != std::string::npos;
         bool found2 = x.find(".") != std::string::npos;
         while(found1 == false || found2 == false){
-            cout << "\t ✖ Invalid Email ✖";
+            cout << "\t х Invalid Email х";
             cout << "\nRe-enter your email:\t\t";
             cin.getline(string, LEN);
             x = std::string(string);
@@ -107,16 +107,18 @@ void loop(User *user, int count){
             while(strcmp(passwd, passwd2) != 0){
                 cout << "\nConfirm your password:\t\t";
                 get_password(passwd2);
-                if (strcmp(passwd, passwd2) != 0)   cout << "\tх";
+                if (strcmp(passwd, passwd2) != 0)   {cout << "\tх";  Beep(750, 300);}
                 else break;
             }
             user[count].set_data(full_name, email, passwd, username, phone_no);
-            cout << "\n\nYou are now registered. Your user name is " << username;
+            cout << "\n\nUser registration success. Your user name is " << username;
             user[count].write_file();
+            cout << "\nUser data saved in file 'user.dat'.\n";
 
             break;
         }
         case 2:{
+            user[count].read_file();
             break;
         }
         case 3:{

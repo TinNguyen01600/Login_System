@@ -40,6 +40,14 @@ public:
         file.write((char*)this, sizeof(User));
         file.close();
     }
+    void read_file(){
+        User user;
+        ifstream file;
+        file.open ("user.dat", ios_base::app);
+        file.read((char*)&user, sizeof(User));
+        cout << this->full_name << endl;
+        file.close();
+    }
 };
 
 
