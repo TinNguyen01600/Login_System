@@ -33,19 +33,18 @@ public:
         strcpy(this->username, username);
         strcpy(this->phone_no, phone_no);
     }
-    void print_data();
     void write_file(){
         ofstream file;
         file.open ("user.dat", ios_base::app);
         file.write((char*)this, sizeof(User));
         file.close();
     }
-    void read_file(){
+    User *read_file(char *username, char *passwd){
         User user;
         ifstream file;
         file.open ("user.dat", ios_base::app);
         file.read((char*)&user, sizeof(User));
-        cout << this->full_name << endl;
+        if ((strcmp(this->username, username) != 0) || (strcmp(this->passwd, passwd) != 0)) return NULL;
         file.close();
     }
 };
