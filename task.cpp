@@ -62,7 +62,7 @@ void check(char *string, int n){
             if((int(string[i]) < 48) || (int(string[i]) > 57))  {valid = 0; break;}
         }
         if(valid == 0){
-            cout << "\t ✖ Invalid Phone Number ✖";
+            cout << "\t х Invalid Phone Number х ";
             cout << "\nRe-enter your telephone number:\t";
             cin.getline(string, LEN);
             check(string, 2);
@@ -107,12 +107,12 @@ void loop(User *user, int count){
             while(strcmp(passwd, passwd2) != 0){
                 cout << "\nConfirm your password:\t\t";
                 get_password(passwd2);
-                if (strcmp(passwd, passwd2) != 0)   cout << "\t✖";
+                if (strcmp(passwd, passwd2) != 0)   cout << "\tх";
                 else break;
             }
             user[count].set_data(full_name, email, passwd, username, phone_no);
-            cout << "\t✔\n\nYou are now registered. Your user name is ";
-            cout << username;
+            cout << "\n\nYou are now registered. Your user name is " << username;
+            user[count].write_file();
 
             break;
         }
