@@ -42,6 +42,10 @@ public:
     User *search(char *username, char *passwd){
         return((strcmp(this->username, username) == 0) && (strcmp(this->passwd, passwd) == 0))?this : NULL;
     }
+    void print_data(){
+        // cout << this->username << endl;
+        cout << this->full_name << endl;
+    }
 };
 
 

@@ -118,14 +118,24 @@ void loop(User *user, int count){
             break;
         }
         case 2:{
-            char username[LEN], passwd[LEN];
-            User temp;
-            
-            // cout << "Enter your Username:\t";
+            // char username[LEN], passwd[LEN];
+            // cout << "Enter your username:\t";
             // cin.getline(username, LEN);
             // cin.getline(username, LEN);
             // cout << "Enter your password:\t\t";
             // get_password(passwd);
+            ifstream file;
+            file.open ("user.dat", ios_base::app);
+            User temp, *temp1;
+            while(file.read((char*)&temp, sizeof(User))){
+                // temp1 = temp.search(username, passwd);
+                // if (temp1 != NULL){
+                //     temp1->print_data();
+                //     break;
+                // }
+                temp.print_data();
+            }
+            file.close();
             break;
         }
         case 3:{
