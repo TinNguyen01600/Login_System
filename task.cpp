@@ -119,13 +119,13 @@ void loop(User *user, int count){
         }
         case 2:{
             char username[LEN], passwd[LEN];
-            cout << "Enter your Username:\t";
-            cin.getline(username, LEN);
-            cin.getline(username, LEN);
-
-            cout << "Enter your password:\t\t";
-            get_password(passwd);
-            user[count].read_file(username, passwd);
+            User temp;
+            
+            // cout << "Enter your Username:\t";
+            // cin.getline(username, LEN);
+            // cin.getline(username, LEN);
+            // cout << "Enter your password:\t\t";
+            // get_password(passwd);
             break;
         }
         case 3:{

@@ -39,13 +39,8 @@ public:
         file.write((char*)this, sizeof(User));
         file.close();
     }
-    User *read_file(char *username, char *passwd){
-        User user;
-        ifstream file;
-        file.open ("user.dat", ios_base::app);
-        file.read((char*)&user, sizeof(User));
-        if ((strcmp(this->username, username) != 0) || (strcmp(this->passwd, passwd) != 0)) return NULL;
-        file.close();
+    User *search(char *username, char *passwd){
+        return((strcmp(this->username, username) == 0) && (strcmp(this->passwd, passwd) == 0))?this : NULL;
     }
 };
 
