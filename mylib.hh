@@ -43,8 +43,10 @@ public:
         return((strcmp(this->username, username) == 0) && (strcmp(this->passwd, passwd) == 0))?this : NULL;
     }
     void print_data(){
-        // cout << this->username << endl;
-        cout << this->full_name << endl;
+        cout << endl << endl << "| Full name:\t" << this->full_name << endl;
+        cout << "| Email:\t" << this->email << endl;
+        cout << "| Username:\t" << this->username << endl;
+        cout << "| Contact no.:\t" << this->phone_no << endl;
     }
 };
 
