@@ -114,7 +114,6 @@ void loop(User *user, int count){
             cout << "Enter your telephone number:\t";
             cin.getline(phone_no, LEN);
             check(phone_no, 2);
-            
 
             cout << "Enter your password:\t\t";
             get_password(passwd);
@@ -128,8 +127,8 @@ void loop(User *user, int count){
             user[count].set_data(full_name, email, passwd, username, phone_no);
             cout << "\n\nUser registration success. Your user name is " << username;
             user[count].write_file();
-            cout << "\nUser data saved in file 'user.dat'.\n";
-
+            cout << "\nUser data saved in file 'user.dat'.";
+            if(check_continue())    {count++; loop(user, count);}
             break;
         }
         case 2:{
@@ -162,10 +161,11 @@ void loop(User *user, int count){
                         cout << "Invalid input!!! Please try again." << endl;
                         cout << "Try again? [y/n]: ";cin >> ch;
                     }
-                    if(ch == 'n')   break;   
+                    if(ch == 'n')   {count++; loop(user, count);}
                 }
             }    
             file.close();
+            if(check_continue())    {count++; loop(user, count);}
             break;
         }
         case 3:{
