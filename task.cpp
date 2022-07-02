@@ -70,6 +70,21 @@ void check(char *string, int n){
     }
 }
 
+int check_continue(){
+    char ch;
+    cout << endl << endl << "Do you want to continue? [y/n]: "; cin >> ch;
+    while(int(ch)!=121 && int(ch)!=110){
+        cout << "Invalid input!!! Please try again." << endl;
+        cout << "Do you want to continue? [y/n]: ";cin >> ch;
+    }
+    if(ch == 'y')   return 1;
+    else{
+        cout << "\t\t\tGood Bye =))" << endl << endl; 
+        exit(0);
+        return 0;
+    }
+}
+
 void loop(User *user, int count){
     print_home_screen();
     cout << "Select an operation: ";
@@ -118,6 +133,7 @@ void loop(User *user, int count){
             break;
         }
         case 2:{
+            system("cls");
             int userFound = 0;
             ifstream file;
             file.open ("user.dat", ios_base::app);

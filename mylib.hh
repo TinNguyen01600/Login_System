@@ -56,5 +56,6 @@ void loop(User *user, int count);
 void generate_username(char *email, char *username);
 void get_password(char *passwd);    // this function is used to encode passwd to *
 void check(char *string, int n);           // check if email is valid
+int check_continue();
 
 #endif  // mylib_DEFINED
