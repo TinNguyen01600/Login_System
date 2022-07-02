@@ -118,23 +118,37 @@ void loop(User *user, int count){
             break;
         }
         case 2:{
-            char username[LEN], passwd[LEN];
-            cout << "Enter your username:\t\t";
-            cin.getline(username, LEN);
-            cin.getline(username, LEN);
-            cout << "Enter your password:\t\t";
-            get_password(passwd);
-
+            int userFound = 0;
             ifstream file;
             file.open ("user.dat", ios_base::app);
-            User temp, *temp1;
-            while(file.read((char*)&temp, sizeof(User))){
-                temp1 = temp.search(username, passwd);
-                if (temp1 != NULL){
-                    temp1->print_data();
-                    break;
+            while(userFound == 0){
+                char username[LEN], passwd[LEN];
+                cout << "Enter your username:\t\t";
+                cin.getline(username, LEN);
+                cin.getline(username, LEN);
+                cout << "Enter your password:\t\t";
+                get_password(passwd);
+                
+                User temp, *temp1;
+                while(file.read((char*)&temp, sizeof(User))){
+                    temp1 = temp.search(username, passwd);
+                    if (temp1 != NULL){
+                        temp1->print_data();
+                        userFound = 1;
+                        break;
+                    }
                 }
-            }
+                if (userFound) break;
+                else{
+                    char ch;
+                    cout << "\nNo user found. Try again? [y/n]: "; cin >> ch;
+                    while(int(ch)!=121 && int(ch)!=110){
+                        cout << "Invalid input!!! Please try again." << endl;
+                        cout << "Try again? [y/n]: ";cin >> ch;
+                    }
+                    if(ch == 'n')   break;   
+                }
+            }    
             file.close();
             break;
         }
