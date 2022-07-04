@@ -30,3 +30,14 @@
 <li>Extract the ZIP file</li>
 <li>You should see there are 5 files in total, including 2 .cpp files, 1 .hh file, 1 README.md file and 1 .gitignore file.</li>
 </ol>
+
+<h2># Operation instructions</h2>
+3rd party library needed: iostream, cstring, string, string.h, conio.h, cstdio, ctime, stdio.h, Windows.h, cstdlib, fstream.
+<ol>
+<li>Open command window cmd</li>
+<li>Go to the <em>login_system</em> file, using command line <em>cd login_system</em>.</li>
+<li>List all files in this folder, using command line <em>ls -l</em>. (There should be 5 files including including 2 .cpp files, 1 .hh file, 1 README.md file and 1 .gitignore file.)</li>
+<li>Compile all .cpp and .hh files for execution using command line <em>gcc *.cpp *.hh -o Project -lm -I.</em></li>
+<li>A new .exe file is made.</li>
+<li>Execute the applicaiton, using command line <em>Project.exe</em>.</li>
+</ol>
